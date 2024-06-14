@@ -3,6 +3,7 @@ const API_KEY =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZiZmJiNjdjMjM5YzAwMTUyZjRiNTAiLCJpYXQiOjE3MTgzNTI4MjIsImV4cCI6MTcxOTU2MjQyMn0.nBhbAzXaX0EtPTQVuzRR7iagO6vqQ0IgtghLwCAaFQA";
 
 const id = new URLSearchParams(window.location.search).get("_id");
+/* id risulta null dal console.log  */
 console.log("RESOURCE ID:", id);
 
 const generaCard = (products) => {
@@ -30,7 +31,7 @@ const generaCard = (products) => {
 
     title.innerText = product.name;
     description.innerText = product.description;
-    price.innerText = product.price;
+    price.innerText = `${product.price}€`;
 
     card.appendChild(img);
     card.appendChild(cardBody);
