@@ -2,6 +2,11 @@ const PRODUCT_URL = "https://striveschool-api.herokuapp.com/api/product/";
 const API_KEY =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZiZmJiNjdjMjM5YzAwMTUyZjRiNTAiLCJpYXQiOjE3MTgzNTI4MjIsImV4cCI6MTcxOTU2MjQyMn0.nBhbAzXaX0EtPTQVuzRR7iagO6vqQ0IgtghLwCAaFQA";
 
+const params = new URLSearchParams(window.location.search);
+console.log(params);
+const id = params.get("_id");
+console.log("RESOURCE ID:", id);
+
 const generaCard = (products) => {
   const row = document.getElementById("row-card");
   row.innerHTML = ``;
@@ -24,6 +29,7 @@ const generaCard = (products) => {
     img.src = product.imageUrl;
     img.setAttribute("alt", product.imageUrl);
     card.style.maxHeigth = "200px";
+
     title.innerText = product.name;
     description.innerText = product.description;
     price.innerText = product.price;
@@ -37,6 +43,13 @@ const generaCard = (products) => {
     row.appendChild(col);
 
     console.log(card);
+
+    const handleCardClick = () => {
+      window.location.assign("./detail.html?_id=" + id);
+    };
+    card.addEventListener("click", () => {
+      handleCardClick();
+    });
   });
 };
 
