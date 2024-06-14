@@ -2,9 +2,7 @@ const PRODUCT_URL = "https://striveschool-api.herokuapp.com/api/product/";
 const API_KEY =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZiZmJiNjdjMjM5YzAwMTUyZjRiNTAiLCJpYXQiOjE3MTgzNTI4MjIsImV4cCI6MTcxOTU2MjQyMn0.nBhbAzXaX0EtPTQVuzRR7iagO6vqQ0IgtghLwCAaFQA";
 
-const params = new URLSearchParams(window.location.search);
-console.log(params);
-const id = params.get("_id");
+const id = new URLSearchParams(window.location.search).get("_id");
 console.log("RESOURCE ID:", id);
 
 const generaCard = (products) => {
