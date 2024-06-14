@@ -5,7 +5,39 @@ const API_KEY =
 const generaCard = (products) => {
   const row = document.getElementById("row-card");
   row.innerHTML = ``;
-  products.foreach((product) => {});
+  products.forEach((product) => {
+    const col = document.createElement("div");
+    col.classList.add("col");
+    const card = document.createElement("div");
+    card.classList.add("card");
+    const img = document.createElement("img");
+    img.classList.add("card-img-top");
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    const title = document.createElement("h3");
+    title.classList.add("card-title");
+    const description = document.createElement("p");
+    description.classList.add("card-text");
+    const price = document.createElement("h5");
+    price.classList.add("card-text");
+
+    img.src = product.imageUrl;
+    img.setAttribute("alt", product.imageUrl);
+    card.style.maxHeigth = "200px";
+    title.innerText = product.name;
+    description.innerText = product.description;
+    price.innerText = product.price;
+
+    card.appendChild(img);
+    card.appendChild(cardBody);
+    cardBody.appendChild(title);
+    cardBody.appendChild(description);
+    cardBody.appendChild(price);
+    col.appendChild(card);
+    row.appendChild(col);
+
+    console.log(card);
+  });
 };
 
 const fetchProduct = () => {
